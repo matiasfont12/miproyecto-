@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+    'Indice',
+    'Appcoder'
+]  
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'miproyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r"C:\Users\Matias\Downloads\Desktop\miproyecto\Indice\plantillas"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

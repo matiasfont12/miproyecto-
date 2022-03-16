@@ -1,7 +1,7 @@
 from django.http import HttpResponse 
 import random
-from django.template import Template 
-from django.template import Context
+from django.template import Template, Context, loader
+
 
 
 
@@ -18,22 +18,24 @@ def numero_random(request):
     return HttpResponse        
 
 def mi_plantilla(request):
-    plantilla = open(r"C:\Users\Matias\Downloads\Desktop\miproyecto\miproyecto\plantillas\plantillas.html")     
+    #plantilla = open(r"C:\Users\Matias\Downloads\Desktop\miproyecto\miproyecto\plantillas\plantillas.html")     
+    #template = Template(plantilla.read())
     
-    template = Template(plantilla.read())
-    
-    nombre = "Matias Emanuel"
-    apellido = "Font"
+    nombre = "matias emanuel"
+    apellido = "font"
+    lista = [1,2,3,4,5]
     
     diccionario_de_datos = {
-      "Nombre": nombre,
-      "Apellido": apellido,
+     "nombre": nombre,
+     "apellido": apellido,
+     "lista": lista
     }
     
-    context = Context(diccionario_de_datos)
+    template = loader.get_template("plantillas.html")
     
-    plantilla_lista = template.render(context)
+    plantilla_lista = template.render(diccionario_de_datos)
+    
+    #context = Context(diccionario_de_datos)
     
     return HttpResponse(plantilla_lista)
-
  
