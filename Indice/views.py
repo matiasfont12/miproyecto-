@@ -1,26 +1,20 @@
 from django.http import HttpResponse 
 import random
-from django.template import Template, Context, loader
-
-
-
+from django.shortcuts import render
 
 def inicio(request):
-    return HttpResponse("Hola, soy la nueva pagina")
+    return render(request, "Indice/index.html", {})
 
 def otra_vista(request):
-    return HttpResponse("""""""""""""""
-                        <h1>Este mensaje es un titulo en h1<h1>
-                         """ )
-        
+    return HttpResponse(
+"<h1>Su privacidad es importante para nosotros. Para protejer mejor su privacidad proporcionamos este aviso que explica nuestras practicas de informacion en linea y sobre la manera que se recoje y se utiliza su informacion.<h1>")
+
 def numero_random(request):
     numero = random.randrange(15,180)
     return HttpResponse        
 
 def mi_plantilla(request):
-    #plantilla = open(r"C:\Users\Matias\Downloads\Desktop\miproyecto\miproyecto\plantillas\plantillas.html")     
-    #template = Template(plantilla.read())
-    
+  
     nombre = "matias emanuel"
     apellido = "font"
     lista = [1,2,3,4,5]
@@ -31,11 +25,7 @@ def mi_plantilla(request):
      "lista": lista
     }
     
-    template = loader.get_template("plantillas.html")
+    return render(request, "Indice/plantillas.html", diccionario_de_datos)
+  
     
-    plantilla_lista = template.render(diccionario_de_datos)
     
-    #context = Context(diccionario_de_datos)
-    
-    return HttpResponse(plantilla_lista)
- 

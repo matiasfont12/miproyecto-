@@ -8,10 +8,16 @@
 </head>
 
 <body>
-  prueba plantilla
-  <p style="color: red;">>>>>>>{{nombre}}<p/>
-  <p style="color: blue;">>>>>>>{{apellido}}<p/>
+{% extends 'Indice/index.html' %}
 
+{% block pruebaTemplate %}
+  
+  prueba plantilla
+  <p style="color: red;">{{nombre}}<p/> 
+    <p style="color: blue;">{{apellido}}<p/>
+      
+      
+ {% endblock pruebaTemplate  %}
 
 </body>
 </html>

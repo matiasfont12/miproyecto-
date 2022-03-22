@@ -9,3 +9,7 @@ def nuevo_curso(request):
     nuevo_curso = Curso(nombre = "Curso Python", curso=curso)
     nuevo_curso.save()
     return HttpResponse(f"Se creo el curso {nuevo_curso.nombre} {nuevo_curso.curso}")
+
+def formulario_curso(request):
+    print(request.method)
+    return render(request, "Appcoder/formulario.html", {})
