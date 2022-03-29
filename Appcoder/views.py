@@ -11,5 +11,19 @@ def nuevo_curso(request):
     return HttpResponse(f"Se creo el curso {nuevo_curso.nombre} {nuevo_curso.curso}")
 
 def formulario_curso(request):
+  
     print(request.method)
+  
+    if request.method == "POST":
+      print(request.POST)
+    
+      nuevo_curso = Curso(nombre=request.POST["nombre"], curso=request.POST["curso"])
+      nuevo_curso.save()
+     
+      return render(request, "Appcoder/formulario.html", {"nuevo_curso":nuevo_curso}) 
+      
     return render(request, "Appcoder/formulario.html", {})
+
+      
+   
+    

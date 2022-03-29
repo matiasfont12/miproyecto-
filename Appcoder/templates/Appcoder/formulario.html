@@ -4,12 +4,16 @@
 {% endblock header_index %}
 
 {% block pruebaTemplate %}
-  <form action="" method ="post">
-   {% csrf_token %}
-    Usuario:<input type="text">
-    Contraseña:<input type="number">
 
-    <input type="submit"placeholder="Enviar"
+  <form action="" method ="post">
+   {% csrf_token %} 
+
+    
+    Nombre:<input type="text" name="nombre">
+    Curso:<input type="number" name="curso">
+
+    <input type="submit"placeholder="Enviar">
+    </form>
 
 {% endblock pruebaTemplate %}
 
